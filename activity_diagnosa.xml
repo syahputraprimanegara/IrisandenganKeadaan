@@ -1,0 +1,856 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DiagnosaActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#192F53">
+
+
+            <TextView
+                android:layout_centerHorizontal="true"
+                android:id="@+id/text111"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Diagnosa Penyakit"
+                android:fontFamily="@font/gravtrac"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="35dp"/>
+
+            <TextView
+                android:id="@+id/text1112"
+                android:layout_below="@+id/text111"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:text="Pilih Minimal Dua Gejala"
+                android:textColor="@color/white"
+                android:fontFamily="@font/boogalo_regular"
+                />
+
+
+
+
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_below="@+id/text1112"
+                android:id="@+id/cardview_idD1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                app:cardCornerRadius="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/buletcardview">
+
+                    <CheckBox
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textSize="23dp"
+                        android:id="@+id/G1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:text="Perut Membengkak"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/christmasrespite"
+                        android:onClick="onCheckbox"
+                        />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_below="@+id/cardview_idD1"
+                android:id="@+id/cardview_idD2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                app:cardCornerRadius="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/buletcardview">
+
+                    <CheckBox
+
+                        android:id="@+id/G2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:text="Demam"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textSize="23dp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/christmasrespite"
+                        android:onClick="onCheckbox"
+                        />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_below="@+id/cardview_idD2"
+                android:id="@+id/cardview_idD3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                app:cardCornerRadius="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/buletcardview">
+
+                    <CheckBox
+                        android:onClick="onCheckbox"
+                        android:id="@+id/G3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:text="Lesu dan Muntah"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textSize="23dp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/christmasrespite"
+                        />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_below="@+id/cardview_idD3"
+                android:id="@+id/cardview_idD4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                app:cardCornerRadius="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/buletcardview">
+
+                    <CheckBox
+                        android:onClick="onCheckbox"
+                        android:id="@+id/G4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:text="Flu"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textSize="23dp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/christmasrespite"
+                        />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_below="@+id/cardview_idD4"
+                android:id="@+id/cardview_idD5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                app:cardCornerRadius="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/buletcardview">
+
+                    <CheckBox
+                        android:onClick="onCheckbox"
+                        android:id="@+id/G5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:text="Tidak Nafsu Makan"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textSize="23dp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/christmasrespite"
+                        />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_below="@+id/cardview_idD5"
+                android:id="@+id/cardview_idD6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                app:cardCornerRadius="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/buletcardview">
+
+                    <CheckBox
+                        android:onClick="onCheckbox"
+                        android:id="@+id/G6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:text="Sariawan"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textSize="23dp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/christmasrespite"
+                        />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_below="@+id/cardview_idD6"
+                android:id="@+id/cardview_idD7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                app:cardCornerRadius="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/buletcardview">
+
+                    <CheckBox
+                        android:onClick="onCheckbox"
+                        android:id="@+id/G7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:text="Diare"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textSize="23dp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/christmasrespite"
+                        />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_below="@+id/cardview_idD7"
+                android:id="@+id/cardview_idD8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                app:cardCornerRadius="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/buletcardview">
+
+                    <CheckBox
+                        android:onClick="onCheckbox"
+                        android:id="@+id/G8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:text="Badan Gatal-gatal"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textSize="23dp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/christmasrespite"
+                        />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_below="@+id/cardview_idD8"
+                android:id="@+id/cardview_idD9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                app:cardCornerRadius="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/buletcardview">
+
+                    <CheckBox
+                        android:onClick="onCheckbox"
+                        android:id="@+id/G9"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:text="Bulu Kusam"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textSize="23dp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/christmasrespite"
+                        />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_below="@+id/cardview_idD9"
+                android:id="@+id/cardview_idD10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                app:cardCornerRadius="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/buletcardview">
+
+                    <CheckBox
+                        android:onClick="onCheckbox"
+                        android:id="@+id/G10"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:text="Bulu Rontok"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textSize="23dp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/christmasrespite"
+                        />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_below="@+id/cardview_idD10"
+                android:id="@+id/cardview_idD11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                app:cardCornerRadius="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/buletcardview">
+
+                    <CheckBox
+                        android:onClick="onCheckbox"
+                        android:id="@+id/G11"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:text="Kurus"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textSize="23dp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/christmasrespite"
+                        />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_below="@+id/cardview_idD11"
+                android:id="@+id/cardview_idD12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                app:cardCornerRadius="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/buletcardview">
+
+                    <CheckBox
+                        android:onClick="onCheckbox"
+                        android:id="@+id/G12"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:text="Mata Memerah"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textSize="23dp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/christmasrespite"
+                        />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_below="@+id/cardview_idD12"
+                android:id="@+id/cardview_idD13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                app:cardCornerRadius="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/buletcardview">
+
+                    <CheckBox
+                        android:onClick="onCheckbox"
+                        android:id="@+id/G13"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:text="Penebalan Kulit di area Kaki"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textSize="23dp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/christmasrespite"
+                        />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_below="@+id/cardview_idD13"
+                android:id="@+id/cardview_idD14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                app:cardCornerRadius="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/buletcardview">
+
+                    <CheckBox
+                        android:onClick="onCheckbox"
+                        android:id="@+id/G14"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:text="Susah Buang Air Besar"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textSize="23dp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/christmasrespite"
+                        />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_below="@+id/cardview_idD14"
+                android:id="@+id/cardview_idD15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                app:cardCornerRadius="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/buletcardview">
+
+                    <CheckBox
+                        android:onClick="onCheckbox"
+                        android:id="@+id/G15"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:text="Galak dan Agresif"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textSize="23dp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/christmasrespite"
+                        />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_below="@+id/cardview_idD15"
+                android:id="@+id/cardview_idD16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                app:cardCornerRadius="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/buletcardview">
+
+                    <CheckBox
+                        android:onClick="onCheckbox"
+                        android:id="@+id/G16"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:text="Susah Buang Air Kecil"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textSize="23dp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/christmasrespite"
+                        />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_below="@+id/cardview_idD16"
+                android:id="@+id/cardview_idD17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                app:cardCornerRadius="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/buletcardview">
+
+                    <CheckBox
+                        android:onClick="onCheckbox"
+                        android:id="@+id/G17"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:text="Warna Gusi Menguning"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textSize="23dp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/christmasrespite"
+                        />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_below="@+id/cardview_idD17"
+                android:id="@+id/cardview_idD18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                app:cardCornerRadius="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/buletcardview">
+
+                    <CheckBox
+                        android:onClick="onCheckbox"
+                        android:id="@+id/G18"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:text="Luka didaerah sekitar dalam mulut"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textSize="22dp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/christmasrespite"
+                        />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_below="@+id/cardview_idD18"
+                android:id="@+id/cardview_idD19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                app:cardCornerRadius="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/buletcardview">
+
+                    <CheckBox
+                        android:onClick="onCheckbox"
+                        android:id="@+id/G19"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:text="Keluar Cairan bau Pada Kelamin Kucing Betina"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textSize="22dp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/christmasrespite"
+                        />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_below="@+id/cardview_idD19"
+                android:id="@+id/cardview_idD20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                app:cardCornerRadius="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/buletcardview">
+
+                    <CheckBox
+                        android:onClick="onCheckbox"
+                        android:id="@+id/G20"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:text="Gusi Bewarna Pucat"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textSize="23dp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/christmasrespite"
+                        />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_marginTop="13dp"
+                android:layout_below="@id/cardview_idD20"
+                android:id="@+id/layout_tombol"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="#00000000"
+                android:weightSum="2"
+                android:orientation="horizontal"
+                >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#00000000">
+
+                   <RelativeLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent">
+
+
+                       <Button
+                           android:layout_centerInParent="true"
+                           android:id="@+id/BtnDiagnosa"
+                           android:fontFamily="@font/boogalo_regular"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:background="@drawable/tombol_bulat_orange"
+                           android:textColor="#fff"
+                           android:text="Diagnosa"
+                           android:paddingRight="15dp"
+                           android:paddingLeft="15dp"
+                           android:onClick="HasilDiagnosa"
+                           />
+                   </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#00000000">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        >
+                        <Button
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/BtnResetDiagnosa"
+                            android:fontFamily="@font/boogalo_regular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/tombol_bulat_orange"
+                            android:textColor="#fff"
+                            android:layout_centerInParent="true"
+                            android:text=" Reset "
+                            android:paddingRight="15dp"
+                            android:paddingLeft="15dp"
+                            android:onClick="HasilDiagnosa"
+                            />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_below="@+id/layout_tombol"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/HASILIL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:text="Hasil Diagnosa adalah"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/HASILIL"
+                android:id="@+id/TextHasil"
+                android:layout_centerInParent="true"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="0"
+
+                />
+
+            <RelativeLayout
+                android:layout_below="@id/TextHasil"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:background="#00000000"
+                />
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <com.luseen.spacenavigation.SpaceNavigationView
+        android:id="@+id/spacediagnosa"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        app:active_item_color="@color/colorAccent"
+        app:centre_button_color="@color/centre_button_color"
+        app:inactive_item_color="#242424"
+        app:space_background_color="#fff"
+        app:active_centre_button_icon_color="@color/white"
+        app:centre_button_icon="@drawable/ic_home_black_24dp"
+        app:space_item_icon_size="30dp"
+        app:inactive_centre_button_icon_color="@color/white"
+        app:active_centre_button_background_color="#F44336"
+        app:space_item_icon_only_size="@dimen/space_item_icon_only_size"
+        app:space_item_text_size="@dimen/space_item_text_default_size" />
+
+
+
+</RelativeLayout>
