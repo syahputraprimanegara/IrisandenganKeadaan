@@ -23,6 +23,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.Vector;
+import java.util.stream.Collectors;
 
 import androidx.core.content.res.TypedArrayUtils;
 
@@ -99,6 +100,7 @@ public class DiagnosaActivity extends Activity {
             }
         });
     }
+
 
 
    public void onCheckbox(View view){
@@ -524,31 +526,22 @@ public class DiagnosaActivity extends Activity {
         txtHasilDiagnosa.setText( hasil*100+ "%" + UtamaTampilan );
     }
 
+    
+    public void newgaabungan33(int c, int d, int e){
+        int urut1 = 0;
+        int urut2= 0;
+        int urut3=0;
 
-    public void newgaabungan3(int c, int d, int e){
-      int urut1 = 0;
-      int urut2= 0;
-      int urut3=0;
-        /*
-        if (c<=d){
-            urut1=c;
-            urut2=d;
-        }else if (d<=c){
-            urut1=d;
-            urut2=c;
-        }*/
+        List<Integer> Urutan=new ArrayList<>();
+        Urutan.add(c);
+        Urutan.add(d);
+        Urutan.add(e);
 
-      List<Integer> Urutan=new ArrayList<>();
-      Urutan.add(c);
-      Urutan.add(d);
-      Urutan.add(e);
+        Collections.sort(Urutan); //Mengurutkan Index2 Pada List Urutan.
 
-      Collections.sort(Urutan);
-
-      urut1=Urutan.get(0);
-      urut2=Urutan.get(1);
-      urut3=Urutan.get(2);
-
+        urut1=Urutan.get(0);
+        urut2=Urutan.get(1);
+        urut3=Urutan.get(2);
 
 
         //Irisan Himpunan
@@ -656,9 +649,8 @@ public class DiagnosaActivity extends Activity {
         //ArrayList Bersifat Dinamis Artinya Panjang suatu array menyesuaikan perubahan dari suatu Ekspresi
 
         Set<String>Irisan = ListPenampung.get(0);//deklarasi Irisan sebagai index pertama untuk looping.
+        Set<String>PenampungNilaiIrisanJikaIrisanBernilaiNULL=new HashSet<>();
 
-        List<String>Gabungan=new ArrayList<>();
-        Set<String>PenampungSetiapKeadaanBaikIrisanAtaupunTidak=new HashSet<>();
 
 
         Set<String>ListPenampungSetiapKeadaanBaikIrisanAtaupunTidak1=new HashSet<>();
@@ -692,8 +684,7 @@ public class DiagnosaActivity extends Activity {
         //ListPenampung.get(i).retainAll(Irisan);
         //StringKeadaanTidakBeririsan.addAll(ListPenampung.get(i));
         for (int i=1;  i< bataslooping   ; i++){
-            Irisan.retainAll(ListPenampung.get(i)); //Irisan secara berulang sesuai
-            Gabungan.addAll(ListPenampung.get(i));//Seharusnya beririsan lagi dengan i
+            Irisan.retainAll(ListPenampung.get(i)); //Irisan secara berulang antara dua Himpunan
             if (!Irisan.isEmpty()){
                 if (i==1){ //Keterangan : Himpunan 1 Dan Himpunan 2 Saling beririsan (Hasil X)
                     //PenampungSetiapKeadaanBaikIrisanAtaupunTidak.addAll(Irisan); //Set Menampung Set
@@ -701,12 +692,13 @@ public class DiagnosaActivity extends Activity {
                     int b=i;
                     hasil=((gejalaPenyakit[a]*gejalaPenyakit[b])+(gejalaPenyakit[a]*teta[b]) + (gejalaPenyakit[b]*teta[a]));
                     hasilteta=1-hasil;
+                    PenampungNilaiIrisanJikaIrisanBernilaiNULL.addAll(Irisan);
                 }
-                
                 hasil=(hasil*gejalaPenyakit[i])+(hasil*teta[i])+(gejalaPenyakit[i]*hasilteta); //Keterangan : Himpunan Beririsan dengan irisan atau berisan dengan pemilihan antara Himpunan satu dan himpunan dua
                 hasilteta=1-hasil;
-                PenampungSetiapKeadaanBaikIrisanAtaupunTidak.addAll(Irisan);
-                UtamaTampilan.addAll(PenampungSetiapKeadaanBaikIrisanAtaupunTidak); 
+                PenampungNilaiIrisanJikaIrisanBernilaiNULL.addAll(Irisan);
+                // PenampungSetiapKeadaanBaikIrisanAtaupunTidak.addAll(Irisan);
+              //  UtamaTampilan.addAll(PenampungSetiapKeadaanBaikIrisanAtaupunTidak);
             }
             else if (Irisan.isEmpty()){ //ketika tidak beririsan maka himpunan ListPenampung Dipilih salah satu
                 if (i==1){ //Keterangan : Himpunan Satu dan Dua Tidak saling beririsan dan Akan Dipilih salah satu dari keduannya untuk diiriskkan dengan himpunan berikutnya
@@ -716,42 +708,47 @@ public class DiagnosaActivity extends Activity {
                     nilai1=((gejalaPenyakit[a]*teta[b])/(1-nilaiK));
                     nilai2=((gejalaPenyakit[b]*teta[a])/(1-nilaiK));
 
-                    if (nilai1<=nilai2){ //Keterangan : Himpunan dua dipilih untuk diiriskan dengan himpunan berikutnya (Hasil Y)
+                    if (nilai1<=nilai2){
                         SortingNilaiterbesar=nilai2;//Contoh Feline Leukimia (Gejala 20)
-                        PenampungSetiapKeadaanBaikIrisanAtaupunTidak.addAll(ListPenampungSetiapKeadaanBaikIrisanAtaupunTidak2); //List Tanpa Set addAll List Tanpa Set
-                    }
-                    else if (nilai1>=nilai2){//Keterangan : Himpunan satu dipilih untuk diiriskan dengan himpunan berikutnya (Hasil Y)
+                        Irisan.clear();
+                        //Irisan.addAll(ListPenampungSetiapKeadaanBaikIrisanAtaupunTidak2);
+                        Irisan=new HashSet<>(ListPenampungSetiapKeadaanBaikIrisanAtaupunTidak2);
+                        //PenampungNilaiIrisanJikaIrisanBernilaiNULL.addAll(Irisan);
+                        //PenampungNilaiIrisanJikaIrisanBernilaiNULL.clear();
+                        //PenampungNilaiIrisanJikaIrisanBernilaiNULL.addAll(Irisan);
 
+                    }
+                    else if (nilai1>=nilai2){
                         SortingNilaiterbesar=nilai1;
-                       PenampungSetiapKeadaanBaikIrisanAtaupunTidak.addAll(ListPenampungSetiapKeadaanBaikIrisanAtaupunTidak1);//Contoh Pyometra (Gejala 19)
-
+                        Irisan.clear();
+                        //Irisan.addAll(ListPenampungSetiapKeadaanBaikIrisanAtaupunTidak1);
+                        Irisan=new HashSet<>(ListPenampungSetiapKeadaanBaikIrisanAtaupunTidak1);
+                        //PenampungNilaiIrisanJikaIrisanBernilaiNULL.addAll(Irisan);
+                        //PenampungNilaiIrisanJikaIrisanBernilaiNULL.clear();
+                        //PenampungNilaiIrisanJikaIrisanBernilaiNULL.addAll(Irisan);//Contoh Pyometra (Gejala 19)
+                        //dicek keatas seharusnya
                     }
-                   
                     hasil=SortingNilaiterbesar;
                     hasilteta=1-hasil;
-                    UtamaTampilan.addAll(PenampungSetiapKeadaanBaikIrisanAtaupunTidak);
                 }
-                nilaiK=hasil*gejalaPenyakit[i];       //kondisi dimana jika i>= 1
-                nilai1=(hasil*teta[i])/(1-nilaiK);   //Keterangan : Himpunan Tidak beirisan Dan Keadaan tidak berisan berada pada himpunan ke -i (Lebih dari 2 himpunan).
+                nilaiK=hasil*gejalaPenyakit[i];
+                nilai1=(hasil*teta[i])/(1-nilaiK);
                 nilai2=(gejalaPenyakit[i]*hasilteta)/(1-nilaiK);
 
-                    if (nilai1<=nilai2){
-                        SortingNilaiterbesar=nilai2;
-                        //Rencana Berisi PenampungKeadaanBaikIrisanAtaupunTidak yang menyimpan hasil irisan itu sendiri
-                        //Keterangan : Himpunan tidak berirsan pada keadaan himpunan i. dan seharusnya himpunan irisan dari himpunan 1 dan dua (Hasil X) atau Salah satu (Hasil Y)
-                        //Problemnya : Ketika beririsan (Hasil X) KETIKA TIDAK BERISAN dengan Himpunan 3 Maka nilai irisan empety TIDAK BISA menyimpan hasil irisan pada get tertentu
-                        //Problemnya : Ketika tidak Berisan (Hasil Y) juga apakah harus di masukkan kedalam himpunan yang akan di iriskan pada himpunan ke tiga
-                        //stuck T_T 
+                if (nilai1<=nilai2){
+                    SortingNilaiterbesar=nilai2;
+                    Irisan.clear();
+                    Irisan.addAll(PenampungNilaiIrisanJikaIrisanBernilaiNULL);
 
-                    }else{
-                        SortingNilaiterbesar=nilai1;
-                        PenampungSetiapKeadaanBaikIrisanAtaupunTidak.addAll(ListPenampung.get(i)); //Keterangan : Himpunan Tidak beirisan dan Yang lebih besar himpunan ke i maka himpunan akan terpilih himpunan ke i untuk diiriskan berikutnya
-                        //maka PenampungKeadaanBaikIrisanAtaupunTidak akan menampung get(i)
-                    }
-                    hasil=SortingNilaiterbesar;
-                    hasilteta=1-hasil;
-                    UtamaTampilan.addAll(PenampungSetiapKeadaanBaikIrisanAtaupunTidak);
+                }else{
+                    SortingNilaiterbesar=nilai1;
+                    Irisan.clear();
+                    Irisan.addAll(ListPenampung.get(i));
+                }
+                hasil=SortingNilaiterbesar;
+                hasilteta=1-hasil;
             }
+            UtamaTampilan.addAll(Irisan);
         } //
         txtHasilDiagnosa.setText( hasil*100+ "%" + UtamaTampilan );
     }
@@ -772,7 +769,7 @@ public class DiagnosaActivity extends Activity {
             newgaabungan2(arrayindeks.get(0),arrayindeks.get(1));
         }
         else if (PanjangKelas==3){
-         newgaabungan3(arrayindeks.get(0),arrayindeks.get(1),arrayindeks.get(2));
+         newgaabungan33(arrayindeks.get(0),arrayindeks.get(1),arrayindeks.get(2));
         }
         else if (PanjangKelas==4){
 
