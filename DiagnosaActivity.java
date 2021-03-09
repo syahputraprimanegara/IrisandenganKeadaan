@@ -647,7 +647,8 @@ public class DiagnosaActivity extends Activity {
         //Set <String> Merupakan Kesatuan artinya tidak memiiki index tertentu
         //ArrayList Bersifat Dinamis Artinya Panjang suatu array menyesuaikan perubahan dari suatu Ekspresi
 
-        Set<String>Irisan = ListPenampung.get(0);//deklarasi Irisan sebagai index pertama untuk looping.
+        Set<String>Irisan = new HashSet<>();
+        Irisan.addAll(ListPenampung.get(0));//deklarasi Irisan sebagai index pertama untuk looping.
         Set<String>PenampungNilaiIrisanJikaIrisanBernilaiNULL=new HashSet<>();
 
 
@@ -690,7 +691,7 @@ public class DiagnosaActivity extends Activity {
                     int b=i;
                     hasil=((gejalaPenyakit[a]*gejalaPenyakit[b])+(gejalaPenyakit[a]*teta[b]) + (gejalaPenyakit[b]*teta[a]));
                     hasilteta=1-hasil;
-                    Irisan.addAll(PenampungNilaiIrisanJikaIrisanBernilaiNULL);
+                    Irisan.addAll(PenampungNilaiIrisanJikaIrisanBernilaiNULL); //Penyimpan Jika Kondisi Berirsan kemudian Tidak Beririsan
                 }
                 hasil=(hasil*gejalaPenyakit[i])+(hasil*teta[i])+(gejalaPenyakit[i]*hasilteta); //Ber-irisan Himpunan pada Himpunan ke i.
                 hasilteta=1-hasil;
@@ -726,12 +727,14 @@ public class DiagnosaActivity extends Activity {
                 if (nilai1<=nilai2){
                     SortingNilaiterbesar=nilai2;
                     Irisan.clear();
-                    Irisan.addAll(PenampungNilaiIrisanJikaIrisanBernilaiNULL);
+                    //Irisan.addAll(PenampungNilaiIrisanJikaIrisanBernilaiNULL);
+                    Irisan=new HashSet<>(PenampungNilaiIrisanJikaIrisanBernilaiNULL);
 
                 }else{
-                    SortingNilaiterbesar=nilai1;
+                    SortingNilaiterbesar=nilai1; //paling akhir
                     Irisan.clear();
-                    Irisan.addAll(ListPenampung.get(i));
+                    Irisan=(ListPenampung.get(i));
+
                 }
                 hasil=SortingNilaiterbesar;
                 hasilteta=1-hasil;
