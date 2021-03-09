@@ -461,13 +461,12 @@ public class DiagnosaActivity extends Activity {
             Gabungan.addAll(ListPenampung.get(i));//Seharusnya beririsan lagi dengan i
             if (!Irisan.isEmpty()){
                 if (i==2){
-                    Irisan.retainAll(ListPenampung.get(i));
+                    Irisan.addAll(Irisan);
                     PenampungSetiapKeadaanBaikIrisanAtaupunTidak.addAll(Irisan); //Set Menampung Set
                     int a=i-1;
                     int b=i;
                     hasil=((gejalaPenyakit[a]*gejalaPenyakit[b])+(gejalaPenyakit[a]*teta[b]) + (gejalaPenyakit[b]*teta[a]));
                     hasilteta=1-hasil;
-
                 }else{
                     Irisan.retainAll(UtamaTampilan);
                     PenampungSetiapKeadaanBaikIrisanAtaupunTidak.addAll(Irisan);
@@ -526,7 +525,7 @@ public class DiagnosaActivity extends Activity {
         txtHasilDiagnosa.setText( hasil*100+ "%" + UtamaTampilan );
     }
 
-    
+
     public void newgaabungan33(int c, int d, int e){
         int urut1 = 0;
         int urut2= 0;
@@ -663,7 +662,7 @@ public class DiagnosaActivity extends Activity {
         //Perhitungan
         double Bobot[]={0.0,0.85,0.40,0.50,0.90,0.40,0.60,0.40,0.60,0.70,
                 0.70,0.35,0.50,0.50,0.60,0.90,0.40,0.90,0.75,0.90,0.65};
-        double gejalaPenyakit[]= {Bobot[urut1],Bobot[urut2], Bobot[urut3]}; //012
+        double gejalaPenyakit[]= {Bobot[urut1],Bobot[urut2], Bobot[urut3]}; //index 0, 1 ,2
         int bataslooping=gejalaPenyakit.length;
         double teta[]=new double[bataslooping];
         double hasil=0;
@@ -685,48 +684,37 @@ public class DiagnosaActivity extends Activity {
         //StringKeadaanTidakBeririsan.addAll(ListPenampung.get(i));
         for (int i=1;  i< bataslooping   ; i++){
             Irisan.retainAll(ListPenampung.get(i)); //Irisan secara berulang antara dua Himpunan
-            if (!Irisan.isEmpty()){
-                if (i==1){ //Keterangan : Himpunan 1 Dan Himpunan 2 Saling beririsan (Hasil X)
-                    //PenampungSetiapKeadaanBaikIrisanAtaupunTidak.addAll(Irisan); //Set Menampung Set
+            if (!Irisan.isEmpty()){ //Ber-irisan Himpunan pada Himpunan 1 dan dua
+                if (i==1){
                     int a=i-1;
                     int b=i;
                     hasil=((gejalaPenyakit[a]*gejalaPenyakit[b])+(gejalaPenyakit[a]*teta[b]) + (gejalaPenyakit[b]*teta[a]));
                     hasilteta=1-hasil;
-                    PenampungNilaiIrisanJikaIrisanBernilaiNULL.addAll(Irisan);
+                    Irisan.addAll(PenampungNilaiIrisanJikaIrisanBernilaiNULL);
                 }
-                hasil=(hasil*gejalaPenyakit[i])+(hasil*teta[i])+(gejalaPenyakit[i]*hasilteta); //Keterangan : Himpunan Beririsan dengan irisan atau berisan dengan pemilihan antara Himpunan satu dan himpunan dua
+                hasil=(hasil*gejalaPenyakit[i])+(hasil*teta[i])+(gejalaPenyakit[i]*hasilteta); //Ber-irisan Himpunan pada Himpunan ke i.
                 hasilteta=1-hasil;
-                PenampungNilaiIrisanJikaIrisanBernilaiNULL.addAll(Irisan);
-                // PenampungSetiapKeadaanBaikIrisanAtaupunTidak.addAll(Irisan);
-              //  UtamaTampilan.addAll(PenampungSetiapKeadaanBaikIrisanAtaupunTidak);
+
             }
             else if (Irisan.isEmpty()){ //ketika tidak beririsan maka himpunan ListPenampung Dipilih salah satu
-                if (i==1){ //Keterangan : Himpunan Satu dan Dua Tidak saling beririsan dan Akan Dipilih salah satu dari keduannya untuk diiriskkan dengan himpunan berikutnya
+                if (i==1){ //Tidak Ber-irisan Untuk kasus Himpunan 1 dan 2 (Akan dipilih salah satunya)
                     int a=i-1;
                     int b=i;
                     nilaiK=(gejalaPenyakit[a]*gejalaPenyakit[b]);
                     nilai1=((gejalaPenyakit[a]*teta[b])/(1-nilaiK));
                     nilai2=((gejalaPenyakit[b]*teta[a])/(1-nilaiK));
 
-                    if (nilai1<=nilai2){
-                        SortingNilaiterbesar=nilai2;//Contoh Feline Leukimia (Gejala 20)
+                    if (nilai1<=nilai2){ //Tidak Ber-irisan Untuk kasus Himpunan 1 dan 2 (Yang dipilih Himpunan kedua dijadikan sebagai irisan)
+                        SortingNilaiterbesar=nilai2;
                         Irisan.clear();
-                        //Irisan.addAll(ListPenampungSetiapKeadaanBaikIrisanAtaupunTidak2);
                         Irisan=new HashSet<>(ListPenampungSetiapKeadaanBaikIrisanAtaupunTidak2);
-                        //PenampungNilaiIrisanJikaIrisanBernilaiNULL.addAll(Irisan);
-                        //PenampungNilaiIrisanJikaIrisanBernilaiNULL.clear();
-                        //PenampungNilaiIrisanJikaIrisanBernilaiNULL.addAll(Irisan);
-
+                        PenampungNilaiIrisanJikaIrisanBernilaiNULL.addAll(Irisan);
                     }
-                    else if (nilai1>=nilai2){
+                    else if (nilai1>=nilai2){ //Tidak Ber-irisan Untuk kasus Himpunan 1 dan 2 (Yang dipilih Himpunan kesatu dijadikan sebagai irisan)
                         SortingNilaiterbesar=nilai1;
                         Irisan.clear();
-                        //Irisan.addAll(ListPenampungSetiapKeadaanBaikIrisanAtaupunTidak1);
-                        Irisan=new HashSet<>(ListPenampungSetiapKeadaanBaikIrisanAtaupunTidak1);
-                        //PenampungNilaiIrisanJikaIrisanBernilaiNULL.addAll(Irisan);
-                        //PenampungNilaiIrisanJikaIrisanBernilaiNULL.clear();
-                        //PenampungNilaiIrisanJikaIrisanBernilaiNULL.addAll(Irisan);//Contoh Pyometra (Gejala 19)
-                        //dicek keatas seharusnya
+                        Irisan=new HashSet<>(ListPenampungSetiapKeadaanBaikIrisanAtaupunTidak1); //Irisan ditambahkan seluruh nilia
+                        PenampungNilaiIrisanJikaIrisanBernilaiNULL.addAll(Irisan);
                     }
                     hasil=SortingNilaiterbesar;
                     hasilteta=1-hasil;
