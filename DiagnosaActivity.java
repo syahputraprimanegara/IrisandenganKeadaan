@@ -708,13 +708,15 @@ public class DiagnosaActivity extends Activity {
                     if (nilai1<=nilai2){ //Tidak Ber-irisan Untuk kasus Himpunan 1 dan 2 (Yang dipilih Himpunan kedua dijadikan sebagai irisan)
                         SortingNilaiterbesar=nilai2;
                         Irisan.clear();
-                        Irisan=new HashSet<>(ListPenampungSetiapKeadaanBaikIrisanAtaupunTidak2);
-                        PenampungNilaiIrisanJikaIrisanBernilaiNULL.addAll(Irisan);
+                        Irisan.addAll(ListPenampungSetiapKeadaanBaikIrisanAtaupunTidak2);
+                        //Irisan=new HashSet<>(ListPenampungSetiapKeadaanBaikIrisanAtaupunTidak2);
+                        //PenampungNilaiIrisanJikaIrisanBernilaiNULL.addAll(Irisan);
                     }
                     else if (nilai1>=nilai2){ //Tidak Ber-irisan Untuk kasus Himpunan 1 dan 2 (Yang dipilih Himpunan kesatu dijadikan sebagai irisan)
                         SortingNilaiterbesar=nilai1;
                         Irisan.clear();
-                        Irisan=new HashSet<>(ListPenampungSetiapKeadaanBaikIrisanAtaupunTidak1); //Irisan ditambahkan seluruh nilia
+                        Irisan.addAll(ListPenampungSetiapKeadaanBaikIrisanAtaupunTidak1);
+                        //Irisan=new HashSet<>(ListPenampungSetiapKeadaanBaikIrisanAtaupunTidak1); //Irisan ditambahkan seluruh nilia
                         PenampungNilaiIrisanJikaIrisanBernilaiNULL.addAll(Irisan);
                     }
                     hasil=SortingNilaiterbesar;
@@ -727,13 +729,14 @@ public class DiagnosaActivity extends Activity {
                 if (nilai1<=nilai2){
                     SortingNilaiterbesar=nilai2;
                     Irisan.clear();
-                    //Irisan.addAll(PenampungNilaiIrisanJikaIrisanBernilaiNULL);
-                    Irisan=new HashSet<>(PenampungNilaiIrisanJikaIrisanBernilaiNULL);
+                    Irisan.addAll(PenampungNilaiIrisanJikaIrisanBernilaiNULL);
+                    //Irisan=new HashSet<>(PenampungNilaiIrisanJikaIrisanBernilaiNULL);
 
                 }else{
                     SortingNilaiterbesar=nilai1; //paling akhir
                     Irisan.clear();
-                    Irisan=(ListPenampung.get(i));
+                    Irisan.addAll(ListPenampung.get(i));
+                    //Irisan=(ListPenampung.get(i));
 
                 }
                 hasil=SortingNilaiterbesar;
